@@ -1,14 +1,14 @@
-
-
+# Agendix
 
 ![Java](https://github.com/HakumenNC/logo-gallery/raw/v0.2.12/img/j/java/rectangle-b-1-40.png)
 ![Maven](https://github.com/HakumenNC/logo-gallery/raw/v0.2.12/img/m/maven/rectangle-b-1-40.png)
 ![Spring Boot](https://github.com/HakumenNC/logo-gallery/raw/v0.2.12/img/s/spring/rectangle-b-1-40.png)
 ![PostgreSQL](https://github.com/HakumenNC/logo-gallery/raw/v0.2.12/img/p/postgresql/rectangle-b-1-40.png)
 
-# Agendix
-
 Agendix is an agenda and appointment management application, built with Spring Boot, PostgreSQL, JWT, and MapStruct.
+
+> [!NOTE]
+> Work in progress
 
 ## Features
 
