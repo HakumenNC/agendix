@@ -1,0 +1,12 @@
+databaseChangeLog:
+- changeSet:
+    id: 1751787833074-1
+    author: bayk3 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: id
+            type: numeric
+        tableName: dummy
+

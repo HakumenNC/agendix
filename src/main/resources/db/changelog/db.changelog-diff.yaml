@@ -1,0 +1,255 @@
+databaseChangeLog:
+- changeSet:
+    id: 1752878388878-1
+    author: bayk3 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: appointmentPK
+            name: id
+            type: BIGINT
+        - column:
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: label
+            type: VARCHAR(255)
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: end_date_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: location
+            type: VARCHAR(255)
+        - column:
+            name: start_date_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: subject
+            type: VARCHAR(255)
+        - column:
+            name: company_id
+            type: BIGINT
+        - column:
+            name: user_id
+            type: BIGINT
+        tableName: appointment
+- changeSet:
+    id: 1752878388878-2
+    author: bayk3 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: companyPK
+            name: id
+            type: BIGINT
+        - column:
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: label
+            type: VARCHAR(255)
+        - column:
+            name: address
+            type: VARCHAR(255)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: mobile_phone_number
+            type: VARCHAR(255)
+        - column:
+            name: phone_number
+            type: VARCHAR(255)
+        tableName: company
+- changeSet:
+    id: 1752878388878-3
+    author: bayk3 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: company_weekly_availabilitiesPK
+            name: company_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: company_weekly_availabilitiesPK
+            name: weekly_availabilities_id
+            type: BIGINT
+        tableName: company_weekly_availabilities
+- changeSet:
+    id: 1752878388878-4
+    author: bayk3 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: userPK
+            name: id
+            type: BIGINT
+        - column:
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: label
+            type: VARCHAR(255)
+        - column:
+            name: address
+            type: VARCHAR(255)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: mobile_phone_number
+            type: VARCHAR(255)
+        - column:
+            name: phone_number
+            type: VARCHAR(255)
+        - column:
+            name: first_name
+            type: VARCHAR(255)
+        - column:
+            name: last_name
+            type: VARCHAR(255)
+        - column:
+            name: login
+            type: VARCHAR(255)
+        - column:
+            name: password
+            type: VARCHAR(255)
+        - column:
+            name: role
+            type: VARCHAR(255)
+        - column:
+            name: status
+            type: VARCHAR(255)
+        - column:
+            name: company_id
+            type: BIGINT
+        tableName: user
+- changeSet:
+    id: 1752878388878-5
+    author: bayk3 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: weekly_availabilityPK
+            name: id
+            type: BIGINT
+        - column:
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: label
+            type: VARCHAR(255)
+        - column:
+            name: day_of_week
+            type: VARCHAR(255)
+        - column:
+            name: end_time
+            type: time WITHOUT TIME ZONE
+        - column:
+            name: start_time
+            type: time WITHOUT TIME ZONE
+        tableName: weekly_availability
+- changeSet:
+    id: 1752878388878-6
+    author: bayk3 (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: weekly_availabilities_id
+        constraintName: UK_4uwa1u9xfqj6kvo4xr3ptp7yj
+        tableName: company_weekly_availabilities
+- changeSet:
+    id: 1752878388878-7
+    author: bayk3 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: company_id
+        baseTableName: user
+        constraintName: FK2yuxsfrkkrnkn5emoobcnnc3r
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: company
+        validate: true
+- changeSet:
+    id: 1752878388878-8
+    author: bayk3 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: weekly_availabilities_id
+        baseTableName: company_weekly_availabilities
+        constraintName: FK5vdxopk8u9xa50ilvdrp6vi5d
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: weekly_availability
+        validate: true
+- changeSet:
+    id: 1752878388878-9
+    author: bayk3 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: appointment
+        constraintName: FKa8m1smlfsc8kkjn2t6wpdmysk
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user
+        validate: true
+- changeSet:
+    id: 1752878388878-10
+    author: bayk3 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: company_id
+        baseTableName: appointment
+        constraintName: FKkitlquw475ct47brwaiiry5lt
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: company
+        validate: true
+- changeSet:
+    id: 1752878388878-11
+    author: bayk3 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: company_id
+        baseTableName: company_weekly_availabilities
+        constraintName: FKnpsgq29ix8inm1oiyyom6x7bs
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: company
+        validate: true
+
